@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+    View,
+    Text,
+    TouchableOpacity,
+    StyleSheet,
+    Platform,
+    StatusBar
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -13,7 +20,8 @@ export default function TopNavBar({ title, showBackButton = false }: TopNavBarPr
 
     return (
         <View style={styles.container}>
-            {/* Left side (Back button if needed) */}
+            <StatusBar barStyle="light-content" backgroundColor="#0a0a0a" />
+
             <View style={styles.sideContainer}>
                 {showBackButton && (
                     <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -25,29 +33,29 @@ export default function TopNavBar({ title, showBackButton = false }: TopNavBarPr
             {/* Center title */}
             <Text style={styles.title}>{title}</Text>
 
-            {/* Right side (empty for now, keeps title centered) */}
+            {/* Right side empty for symmetry */}
             <View style={styles.sideContainer} />
         </View>
     );
 }
 
+// @TODO: check why cusatom styles are not applied
 const styles = StyleSheet.create({
     container: {
+        paddingTop: Platform.OS === 'ios' ? 44 : StatusBar.currentHeight,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingHorizontal: 16,
-        paddingVertical: 14,
-        borderBottomColor: '#1a1a1a',
-        borderBottomWidth: 1,
+        paddingBottom: 14,
         backgroundColor: '#0a0a0a',
     },
     sideContainer: {
-        width: 40, // keeps spacing symmetrical
+        width: 40,
         alignItems: 'flex-start',
     },
     title: {
-        color: 'white',
+        color: '#fff',
         fontSize: 18,
         fontWeight: 'bold',
         textAlign: 'center',

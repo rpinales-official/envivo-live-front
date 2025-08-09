@@ -4,13 +4,10 @@ import {
     Text,
     StyleSheet
 } from 'react-native';
-import TopNavBar from '../components/TopNavBar';
 
 export default function HomeScreen() {
     return (
         <View style={styles.container}>
-            <TopNavBar title="Live Music" />
-
             <View style={styles.content}>
                 <Text style={{ color: 'white' }}>Home content goes here...</Text>
             </View>

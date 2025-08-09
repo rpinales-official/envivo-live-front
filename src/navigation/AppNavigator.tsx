@@ -13,7 +13,8 @@ export default function AppNavigator() {
     return (
         <Stack.Navigator
             screenOptions={{
-                header: ({ route, navigation, options, back }) => (
+                headerTransparent: true,
+                header: ({ route, options, back }) => (
                     <TopNavBar
                         title={options.title ?? route.name}
                         showBackButton={!!back}
@@ -21,7 +22,11 @@ export default function AppNavigator() {
                 ),
             }}
         >
-            <Stack.Screen name="Tabs" component={BottomTabs} options={{ title: 'Live Music' }} />
+            <Stack.Screen
+                name="Tabs"
+                component={BottomTabs}
+                options={{ headerShown: false }}
+            />
         </Stack.Navigator>
     );
 }

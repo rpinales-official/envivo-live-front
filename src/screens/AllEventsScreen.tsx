@@ -1,5 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet
+} from 'react-native';
 
 export default function AllEventsScreen() {
     return (
@@ -12,7 +16,7 @@ export default function AllEventsScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#121212',
+        backgroundColor: '#0a0a0a',
         justifyContent: 'center',
         alignItems: 'center',
     },

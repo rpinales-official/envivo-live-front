@@ -20,17 +20,22 @@ export default function BottomTabs() {
                 tabBarInactiveTintColor: '#888',
                 tabBarIcon: ({ color, size }) => {
                     let iconName: keyof typeof Ionicons.glyphMap;
-
                     if (route.name === 'Home') iconName = 'home-outline';
                     else iconName = 'calendar-outline';
-
                     return <Ionicons name={iconName} size={size} color={color} />;
                 },
-                headerShown: false,
             })}
         >
-            <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="AllEvents" component={AllEventsScreen} />
+            <Tab.Screen
+                name="Home"
+                component={HomeScreen}
+                options={{ title: 'Live Music' }}
+            />
+            <Tab.Screen
+                name="AllEvents"
+                component={AllEventsScreen}
+                options={{ title: 'All Events' }}
+            />
         </Tab.Navigator>
     );
 }
