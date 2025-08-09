@@ -1,10 +1,19 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet
+} from 'react-native';
+import TopNavBar from '../components/TopNavBar';
 
 export default function HomeScreen() {
     return (
         <View style={styles.container}>
-            <Text style={styles.placeholderText}>Home Screen</Text>
+            <TopNavBar title="Live Music" />
+
+            <View style={styles.content}>
+                <Text style={{ color: 'white' }}>Home content goes here...</Text>
+            </View>
         </View>
     );
 }
@@ -13,11 +22,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#0a0a0a',
-        justifyContent: 'center',
-        alignItems: 'center',
     },
-    placeholderText: {
-        color: 'white',
-        fontSize: 18,
+    content: {
+        flex: 1,
+        padding: 16,
     },
 });
