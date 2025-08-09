@@ -1,5 +1,11 @@
 import React from 'react';
-import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
+import {
+    ImageBackground,
+    Pressable,
+    StyleSheet,
+    Text,
+    View
+} from 'react-native';
 
 // @TODO: revisit this after getting access to the API
 type FeaturedEventCardProps = {
