@@ -5,12 +5,10 @@ import {
     StyleSheet
 } from 'react-native';
 
-export default function HomeScreen() {
+export default function AllEventsScreen() {
     return (
         <View style={styles.container}>
-            <View style={styles.content}>
-                <Text style={{ color: 'white' }}>Home content goes here...</Text>
-            </View>
+            <Text style={styles.text}>All Events will be displayed here</Text>
         </View>
     );
 }
@@ -19,9 +17,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#0a0a0a',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-    content: {
-        flex: 1,
-        padding: 16,
+    text: {
+        color: '#fff',
+        fontSize: 18,
     },
 });
