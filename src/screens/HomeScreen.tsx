@@ -1,11 +1,10 @@
 import React from 'react';
 import {
     View,
-    Text,
     StyleSheet
 } from 'react-native';
-import FeaturedEventCard from '../components/FeaturedEventCard';
 import FeaturedEventsCarousel, { FeaturedEvent } from '../components/FeaturedEventsCarousel';
+import EventCard from '../components/EventCard';
 
 const MOCK_FEATURED: FeaturedEvent[] = [
     {
@@ -34,7 +33,14 @@ export default function HomeScreen() {
                 <FeaturedEventsCarousel
                     title="Featured Events"
                     data={MOCK_FEATURED}
-                    onPressItem={(id) => console.error(`EAdd navigation to event details page event ID: ${id}`)}
+                    onPressItem={(id) => console.error(`Add navigation to event details page event ID: ${id}`)}
+                />
+                <EventCard
+                    id="4"
+                    title="Jazz Night"
+                    subtitle="Blue Note · Sun 7:00 PM"
+                    imageUrl="https://www.rgj.com/gcdn/presto/2019/10/04/PREN/0813d7ab-694f-42fb-8ee0-6901ea24d1fd-Links_Awakening_Main.jpg?width=1320&height=744&fit=crop&format=pjpg&auto=webp"
+                    onPress={(id) => console.error(`Add navigation to event details page event ID: ${id}`)}
                 />
             </View>
         </View>
