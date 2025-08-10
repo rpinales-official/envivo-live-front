@@ -1,17 +1,11 @@
 import React from 'react';
 import { FlatList, ListRenderItem, StyleSheet, Text, View } from 'react-native';
 import EventCard from './EventCard';
-
-export type VerticalEvent = {
-    id: string;
-    title: string;
-    subtitle?: string;
-    imageUrl?: string;
-};
+import { Event } from '../types/event';
 
 type Props = {
     title?: string;
-    data: VerticalEvent[];
+    data: Event[];
     onPressItem?: (id: string) => void;
 };
 
@@ -20,12 +14,10 @@ export default function VerticalEventsList({
     data,
     onPressItem,
 }: Props) {
-    const renderItem: ListRenderItem<VerticalEvent> = ({ item }) => (
+
+    const renderItem: ListRenderItem<Event> = ({ item }) => (
         <EventCard
-            id={item.id}
-            title={item.title}
-            subtitle={item.subtitle}
-            imageUrl={item.imageUrl}
+            event={item}
             onPress={onPressItem}
         />
     );

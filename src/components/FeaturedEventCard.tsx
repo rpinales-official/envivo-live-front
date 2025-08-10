@@ -6,31 +6,25 @@ import {
     Text,
     View
 } from 'react-native';
+import { Event } from '../types/event';
 
-// @TODO: revisit this after getting access to the API
 type FeaturedEventCardProps = {
-    id: string;
-    title: string;
-    subtitle?: string;
-    imageUrl?: string;
+    event: Event;
     onPress?: (id: string) => void;
 };
 
 export default function FeaturedEventCard({
-    id,
-    title,
-    subtitle,
-    imageUrl,
+    event,
     onPress,
 }: FeaturedEventCardProps) {
 
     return (
         <Pressable
-            onPress={() => onPress?.(id)}
+            onPress={() => onPress?.(event.id)}
             style={({ pressed }) => [styles.card, pressed && styles.cardPressed]}
         >
             <ImageBackground
-                source={imageUrl ? { uri: imageUrl } : undefined}
+                source={event.imageUrl ? { uri: event.imageUrl } : undefined}
                 // @TODO: replace with a working image
                 defaultSource={require('../../assets/placeholder.png')}
                 style={styles.image}
@@ -40,9 +34,9 @@ export default function FeaturedEventCard({
                 {/* gradient-ish overlay for text readability */}
                 <View style={styles.overlay} />
                 <View style={styles.textWrap}>
-                    <Text numberOfLines={1} style={styles.title}>{title}</Text>
-                    {!!subtitle && (
-                        <Text numberOfLines={1} style={styles.subtitle}>{subtitle}</Text>
+                    <Text numberOfLines={1} style={styles.title}>{event.title}</Text>
+                    {!!event.subtitle && (
+                        <Text numberOfLines={1} style={styles.subtitle}>{event.subtitle}</Text>
                     )}
                 </View>
             </ImageBackground>

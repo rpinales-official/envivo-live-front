@@ -3,10 +3,11 @@ import {
     View,
     StyleSheet
 } from 'react-native';
-import FeaturedEventsCarousel, { FeaturedEvent } from '../components/FeaturedEventsCarousel';
-import VerticalEventsList, { VerticalEvent } from '../components/VerticalEventsList';
+import FeaturedEventsCarousel from '../components/FeaturedEventsCarousel';
+import VerticalEventsList from '../components/VerticalEventsList';
+import { Event } from '../types/event';
 
-const MOCK_FEATURED: FeaturedEvent[] = [
+const MOCK_FEATURED: Event[] = [
     {
         id: '1',
         title: 'Rock Night',
@@ -27,7 +28,7 @@ const MOCK_FEATURED: FeaturedEvent[] = [
     },
 ];
 
-const MOCK_UPCOMING: VerticalEvent[] = [
+const MOCK_UPCOMING: Event[] = [
     {
         id: '101',
         title: 'Jazz Fusion',
@@ -65,6 +66,7 @@ const MOCK_UPCOMING: VerticalEvent[] = [
         imageUrl: 'https://picsum.photos/seed/blues/400/400'
     },
 ];
+
 export default function HomeScreen() {
     return (
         <View style={styles.container}>

@@ -7,27 +7,23 @@ import {
     Text
 } from 'react-native';
 import FeaturedEventCard from './FeaturedEventCard';
+import { Event } from '../types/event';
 
-export type FeaturedEvent = {
-    id: string;
-    title: string;
-    subtitle?: string;
-    imageUrl?: string;
-};
-
-type Props = {
+type FeaturedEventsCarouselProps = {
     title?: string;
-    data: FeaturedEvent[];
+    data: Event[];
     onPressItem?: (id: string) => void;
 };
 
-export default function FeaturedEventsCarousel({ title, data, onPressItem }: Props) {
-    const renderItem: ListRenderItem<FeaturedEvent> = ({ item }) => (
+export default function FeaturedEventsCarousel({
+    title,
+    data,
+    onPressItem
+}: FeaturedEventsCarouselProps) {
+
+    const renderItem: ListRenderItem<Event> = ({ item }) => (
         <FeaturedEventCard
-            id={item.id}
-            title={item.title}
-            subtitle={item.subtitle}
-            imageUrl={item.imageUrl}
+            event={item}
             onPress={() => onPressItem?.(item.id)}
         />
     );
