@@ -9,13 +9,15 @@ import {
 
 // @TODO: revisit this after getting access to the API
 type FeaturedEventCardProps = {
+    id: string;
     title: string;
     subtitle?: string;
     imageUrl?: string;
-    onPress?: () => void;
+    onPress?: (id: string) => void;
 };
 
 export default function FeaturedEventCard({
+    id,
     title,
     subtitle,
     imageUrl,
@@ -24,10 +26,8 @@ export default function FeaturedEventCard({
 
     return (
         <Pressable
-            onPress={onPress}
+            onPress={() => onPress?.(id)}
             style={({ pressed }) => [styles.card, pressed && styles.cardPressed]}
-            accessibilityRole="button"
-            accessibilityLabel={`${title}${subtitle ? ', ' + subtitle : ''}`}
         >
             <ImageBackground
                 source={imageUrl ? { uri: imageUrl } : undefined}

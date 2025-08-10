@@ -1,5 +1,11 @@
 import React from 'react';
-import { FlatList, ListRenderItem, View, StyleSheet, Text } from 'react-native';
+import {
+    FlatList,
+    ListRenderItem,
+    View,
+    StyleSheet,
+    Text
+} from 'react-native';
 import FeaturedEventCard from './FeaturedEventCard';
 
 export type FeaturedEvent = {
@@ -18,6 +24,7 @@ type Props = {
 export default function FeaturedEventsCarousel({ title, data, onPressItem }: Props) {
     const renderItem: ListRenderItem<FeaturedEvent> = ({ item }) => (
         <FeaturedEventCard
+            id={item.id}
             title={item.title}
             subtitle={item.subtitle}
             imageUrl={item.imageUrl}
@@ -43,7 +50,9 @@ export default function FeaturedEventsCarousel({ title, data, onPressItem }: Pro
 }
 
 const styles = StyleSheet.create({
-    section: { marginTop: 8 },
+    section: {
+        marginTop: 8
+    },
     sectionTitle: {
         color: '#fff',
         fontSize: 18,
@@ -51,5 +60,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16,
         marginBottom: 4,
     },
-    content: { paddingHorizontal: 16 },
+    content: {
+        paddingHorizontal: 16
+    },
 });
