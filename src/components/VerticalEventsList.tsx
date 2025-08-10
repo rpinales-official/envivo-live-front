@@ -1,30 +1,24 @@
 import React from 'react';
-import {
-    FlatList,
-    ListRenderItem,
-    View,
-    StyleSheet,
-    Text
-} from 'react-native';
-import FeaturedEventCard from './FeaturedEventCard';
+import { FlatList, ListRenderItem, StyleSheet, Text, View } from 'react-native';
+import EventCard from './EventCard';
 import { Event } from '../types/event';
 
-type FeaturedEventsCarouselProps = {
+type Props = {
     title?: string;
     data: Event[];
     onPressItem?: (id: string) => void;
 };
 
-export default function FeaturedEventsCarousel({
+export default function VerticalEventsList({
     title,
     data,
-    onPressItem
-}: FeaturedEventsCarouselProps) {
+    onPressItem,
+}: Props) {
 
     const renderItem: ListRenderItem<Event> = ({ item }) => (
-        <FeaturedEventCard
+        <EventCard
             event={item}
-            onPress={() => onPressItem?.(item.id)}
+            onPress={onPressItem}
         />
     );
 
@@ -33,13 +27,11 @@ export default function FeaturedEventsCarousel({
             {title && <Text style={styles.sectionTitle}>{title}</Text>}
             <FlatList
                 data={data}
-                renderItem={renderItem}
-                horizontal
                 keyExtractor={(item) => item.id}
-                showsHorizontalScrollIndicator={false}
+                renderItem={renderItem}
+                ItemSeparatorComponent={() => <View style={styles.separator} />}
                 contentContainerStyle={styles.content}
-                snapToAlignment="start"
-                decelerationRate="fast"
+                showsVerticalScrollIndicator={false}
             />
         </View>
     );
@@ -47,16 +39,20 @@ export default function FeaturedEventsCarousel({
 
 const styles = StyleSheet.create({
     section: {
-        marginTop: 8
+        marginTop: 12,
+        flex: 1
     },
     sectionTitle: {
         color: '#fff',
         fontSize: 18,
         fontWeight: '700',
         paddingHorizontal: 16,
-        marginBottom: 4,
+        marginBottom: 6,
     },
     content: {
-        paddingHorizontal: 16
+        paddingBottom: 24
+    },
+    separator: {
+        height: 8
     },
 });

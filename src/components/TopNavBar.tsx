@@ -15,7 +15,11 @@ type TopNavBarProps = {
     showBackButton?: boolean;
 };
 
-export default function TopNavBar({ title, showBackButton = false }: TopNavBarProps) {
+export default function TopNavBar({
+    title,
+    showBackButton = false
+}: TopNavBarProps) {
+
     const navigation = useNavigation();
 
     return (

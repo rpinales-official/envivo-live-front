@@ -6,36 +6,31 @@ import {
     Text,
     View
 } from 'react-native';
+import { Event } from '../types/event';
 
 type EventCardProps = {
-    id: string;
-    title: string;
-    subtitle?: string;
-    imageUrl?: string;
+    event: Event;
     onPress?: (id: string) => void;
 };
 
 export default function EventCard({
-    id,
-    title,
-    subtitle,
-    imageUrl,
+    event,
     onPress,
 }: EventCardProps) {
     return (
         <Pressable
-            onPress={() => onPress?.(id)}
+            onPress={() => onPress?.(event.id)}
             style={({ pressed }) => [styles.row, pressed && styles.rowPressed]}
         >
             <Image
             // @TODO: replace with a working image
-                source={imageUrl ? { uri: imageUrl } : require('../../assets/placeholder.png')}
+                source={event.imageUrl ? { uri: event.imageUrl } : require('../../assets/placeholder.png')}
                 style={styles.image}
             />
             <View style={styles.textWrap}>
-                <Text numberOfLines={1} style={styles.title}>{title}</Text>
-                {!!subtitle && (
-                    <Text numberOfLines={1} style={styles.subtitle}>{subtitle}</Text>
+                <Text numberOfLines={1} style={styles.title}>{event.title}</Text>
+                {!!event.subtitle && (
+                    <Text numberOfLines={1} style={styles.subtitle}>{event.subtitle}</Text>
                 )}
             </View>
         </Pressable>
@@ -55,7 +50,7 @@ const styles = StyleSheet.create({
     },
     rowPressed: { opacity: 0.9 },
     image: {
-        width: ITEM_HEIGHT - 8,   // keep square
+        width: ITEM_HEIGHT - 8,
         height: ITEM_HEIGHT - 8,
         borderRadius: 10,
         backgroundColor: '#1a1a1a',
