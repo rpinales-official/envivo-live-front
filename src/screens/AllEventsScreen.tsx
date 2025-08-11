@@ -5,6 +5,9 @@ import {
 } from 'react-native';
 import VerticalEventsList from '../components/VerticalEventsList';
 import { Event } from '../types/event';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { RootStackParamList } from '../navigation/AppNavigator';
 
 const MOCK_ALL_EVENTS: Event[] = [
     { id: '201', title: 'Late Night Jazz', subtitle: 'Wally’s · Tonight 11:00 PM', imageUrl: 'https://picsum.photos/seed/latejazz/400/400' },
@@ -18,18 +21,15 @@ const MOCK_ALL_EVENTS: Event[] = [
 ];
 
 export default function AllEventsScreen() {
-    
-    const handlePress = (id: string) => {
-        console.error('Event pressed:', id);
-        // TODO: navigate to EventDetails when that screen exists
-    };
+
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
     return (
         <View style={styles.container}>
             <VerticalEventsList
                 // title="All Events"
                 data={MOCK_ALL_EVENTS}
-                onPressItem={handlePress}
+                onPressItem={(id) => navigation.navigate('EventDetails', { id })}
             />
         </View>
     );
