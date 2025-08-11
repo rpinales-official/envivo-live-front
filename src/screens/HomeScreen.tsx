@@ -3,7 +3,6 @@ import {
     View,
     StyleSheet,
     ActivityIndicator,
-    Text,
 } from 'react-native';
 import FeaturedEventsCarousel from '../components/FeaturedEventsCarousel';
 import VerticalEventsList from '../components/VerticalEventsList';

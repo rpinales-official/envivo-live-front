@@ -1,5 +1,11 @@
 import React from 'react';
-import { Linking, Pressable, StyleSheet, Text, View } from 'react-native';
+import {
+    Linking,
+    Pressable,
+    StyleSheet,
+    Text,
+    View
+} from 'react-native';
 
 type EventCTAProps = {
     label?: string;

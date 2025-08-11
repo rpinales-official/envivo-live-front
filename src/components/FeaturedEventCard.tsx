@@ -28,7 +28,6 @@ export default function FeaturedEventCard({
         >
             <ImageBackground
                 source={event.imageUrl ? { uri: event.imageUrl } : undefined}
-                // @TODO: replace with a working image
                 defaultSource={require('../../assets/placeholder.png')}
                 style={styles.image}
                 imageStyle={styles.imageRadius}

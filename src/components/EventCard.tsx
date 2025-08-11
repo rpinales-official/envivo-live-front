@@ -27,7 +27,6 @@ export default function EventCard({
             style={({ pressed }) => [styles.row, pressed && styles.rowPressed]}
         >
             <Image
-            // @TODO: replace with a working image
                 source={event.imageUrl ? { uri: event.imageUrl } : require('../../assets/placeholder.png')}
                 style={styles.image}
             />

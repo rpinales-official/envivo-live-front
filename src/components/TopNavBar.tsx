@@ -25,7 +25,6 @@ export default function TopNavBar({
     return (
         <View style={styles.container}>
             <StatusBar barStyle="light-content" backgroundColor="#0a0a0a" />
-
             <View style={styles.sideContainer}>
                 {showBackButton && (
                     <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -33,20 +32,16 @@ export default function TopNavBar({
                     </TouchableOpacity>
                 )}
             </View>
-
-            {/* Center title */}
             <Text style={styles.title}>{title}</Text>
-
             {/* Right side empty for symmetry */}
             <View style={styles.sideContainer} />
         </View>
     );
 }
 
-// @TODO: check why cusatom styles are not applied
 const styles = StyleSheet.create({
     container: {
-        paddingTop: Platform.OS === 'ios' ? 44 : StatusBar.currentHeight,
+        paddingTop: Platform.OS === 'ios' ? 50 : StatusBar.currentHeight,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',

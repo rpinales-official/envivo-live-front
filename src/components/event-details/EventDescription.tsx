@@ -1,8 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+    StyleSheet,
+    Text,
+    View
+} from 'react-native';
 
 type EventDescriptionProps = {
-    text?: string
+    text?: string;
 };
 
 export default function EventDescription({

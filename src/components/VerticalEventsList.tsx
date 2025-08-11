@@ -1,5 +1,11 @@
 import React from 'react';
-import { FlatList, ListRenderItem, StyleSheet, Text, View } from 'react-native';
+import {
+    FlatList,
+    ListRenderItem,
+    StyleSheet,
+    Text,
+    View
+} from 'react-native';
 import EventCard from './EventCard';
 import { Event } from '../types/event';
 
