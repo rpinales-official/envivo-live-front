@@ -28,7 +28,11 @@ export default function EventDetailsScreen() {
         <View style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.content}>
                 <EventHero imageUrl={event.imageUrl} />
-                <EventTitleBlock title={event.title} subtitle={event.subtitle} />
+                <EventTitleBlock
+                    title={event.title}
+                    venueName={event.venueName}
+                    startDateTime={event.startDateTime}
+                    timeZone={event.timeZone} />
                 <EventDescription text={event.description} />
                 <EventCTA ticketUrl={event.ticketUrl} />
             </ScrollView>

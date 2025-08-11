@@ -1,9 +1,10 @@
-// @TODO: revisit this after getting access to the API
 export type Event = {
-  id: string;
-  title: string;
-  subtitle?: string;
-  imageUrl?: string;
-  description?: string;
-  ticketUrl?: string;
+	id: string;
+	title: string;
+	imageUrl?: string;
+	venueName?: string;
+	startDateTime?: string;
+	timeZone?: string;
+	description?: string;
+	ticketUrl?: string;
 };

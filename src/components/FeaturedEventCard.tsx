@@ -7,6 +7,7 @@ import {
     View
 } from 'react-native';
 import { Event } from '../types/event';
+import { buildEventMeta } from '../utils/format';
 
 type FeaturedEventCardProps = {
     event: Event;
@@ -17,6 +18,8 @@ export default function FeaturedEventCard({
     event,
     onPress,
 }: FeaturedEventCardProps) {
+
+    const meta = buildEventMeta(event.venueName, event.startDateTime, event.timeZone);
 
     return (
         <Pressable
@@ -35,8 +38,8 @@ export default function FeaturedEventCard({
                 <View style={styles.overlay} />
                 <View style={styles.textWrap}>
                     <Text numberOfLines={1} style={styles.title}>{event.title}</Text>
-                    {!!event.subtitle && (
-                        <Text numberOfLines={1} style={styles.subtitle}>{event.subtitle}</Text>
+                    {!!meta && (
+                        <Text numberOfLines={1} style={styles.meta}>{meta}</Text>
                     )}
                 </View>
             </ImageBackground>
@@ -69,7 +72,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '700',
     },
-    subtitle: {
+    meta: {
         color: '#ddd',
         fontSize: 12,
         marginTop: 2,
