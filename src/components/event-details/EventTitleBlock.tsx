@@ -4,21 +4,28 @@ import {
     Text,
     View
 } from 'react-native';
+import { buildEventMeta } from '../../utils/format';
 
 type EventTitleBlockProps = {
     title: string;
-    subtitle?: string
+    venueName?: string;
+    startDateTime?: string;
+    timeZone?: string;
 };
 
 export default function EventTitleBlock({
     title,
-    subtitle,
+    venueName,
+    startDateTime,
+    timeZone,
 }: EventTitleBlockProps) {
+
+    const meta = buildEventMeta(venueName, startDateTime, timeZone);
 
     return (
         <View style={styles.wrap}>
             <Text style={styles.title}>{title}</Text>
-            {!!subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
+            {!!meta && <Text style={styles.meta}>{meta}</Text>}
         </View>
     );
 }
@@ -33,7 +40,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: '800'
     },
-    subtitle: {
+    meta: {
         color: '#bbb',
         fontSize: 14,
         marginTop: 4

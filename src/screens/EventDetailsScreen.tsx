@@ -28,7 +28,11 @@ export default function EventDetailsScreen() {
         <View style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.content}>
                 <EventHero imageUrl={event.imageUrl} />
-                <EventTitleBlock title={event.title} subtitle={event.subtitle} />
+                <EventTitleBlock
+                    title={event.title}
+                    venueName={event.venueName}
+                    startDateTime={event.startDateTime}
+                    timeZone={event.timeZone} />
                 <EventDescription text={event.description} />
                 <EventCTA ticketUrl={event.ticketUrl} />
             </ScrollView>
@@ -40,7 +44,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#0a0a0a',
-        padding: 16
+        padding: 16,
+        paddingTop: 100, // Adjust for top bar
     },
     content: {
         paddingBottom: 24

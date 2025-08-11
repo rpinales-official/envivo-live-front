@@ -7,6 +7,7 @@ import {
     View
 } from 'react-native';
 import { Event } from '../types/event';
+import { buildEventMeta } from '../utils/format';
 
 type EventCardProps = {
     event: Event;
@@ -18,20 +19,21 @@ export default function EventCard({
     onPress,
 }: EventCardProps) {
 
+    const meta = buildEventMeta(event.venueName, event.startDateTime, event.timeZone);
+
     return (
         <Pressable
             onPress={() => onPress?.(event.id)}
             style={({ pressed }) => [styles.row, pressed && styles.rowPressed]}
         >
             <Image
-            // @TODO: replace with a working image
                 source={event.imageUrl ? { uri: event.imageUrl } : require('../../assets/placeholder.png')}
                 style={styles.image}
             />
             <View style={styles.textWrap}>
                 <Text numberOfLines={1} style={styles.title}>{event.title}</Text>
-                {!!event.subtitle && (
-                    <Text numberOfLines={1} style={styles.subtitle}>{event.subtitle}</Text>
+                {!!meta && (
+                    <Text numberOfLines={1} style={styles.meta}>{meta}</Text>
                 )}
             </View>
         </Pressable>
@@ -65,7 +67,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '700',
     },
-    subtitle: {
+    meta: {
         color: '#cfcfcf',
         fontSize: 12,
         marginTop: 2,

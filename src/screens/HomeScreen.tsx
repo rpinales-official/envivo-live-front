@@ -1,7 +1,8 @@
 import React from 'react';
 import {
     View,
-    StyleSheet
+    StyleSheet,
+    ActivityIndicator,
 } from 'react-native';
 import FeaturedEventsCarousel from '../components/FeaturedEventsCarousel';
 import VerticalEventsList from '../components/VerticalEventsList';
@@ -14,6 +15,14 @@ export default function HomeScreen() {
 
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     const { featuredEvents, upcomingEvents, isLoading } = useEvents();
+
+    if (isLoading) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
 
     return (
         <View style={styles.container}>

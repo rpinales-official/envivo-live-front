@@ -1,7 +1,8 @@
 import React from 'react';
 import {
     View,
-    StyleSheet
+    StyleSheet,
+    ActivityIndicator,
 } from 'react-native';
 import VerticalEventsList from '../components/VerticalEventsList';
 import { useEvents } from '../context/EventsProvider';
@@ -12,12 +13,19 @@ import type { RootStackParamList } from '../navigation/AppNavigator';
 export default function AllEventsScreen() {
 
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
-    const { events } = useEvents();
+    const { events, isLoading } = useEvents();
+
+    if (isLoading) {
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <ActivityIndicator size="large" />
+            </View>
+        );
+    }
 
     return (
         <View style={styles.container}>
             <VerticalEventsList
-                // title="All Events"
                 data={events}
                 onPressItem={(id) => navigation.navigate('EventDetails', { id })}
             />
