@@ -13,7 +13,7 @@ type EventCTAProps = {
 };
 
 export default function EventCTA({
-    label = 'Buy Tickets',
+    label = 'Get Tickets',
     ticketUrl,
 }: EventCTAProps) {
 
@@ -23,7 +23,11 @@ export default function EventCTA({
 
     return (
         <View style={styles.wrap}>
-            <Pressable onPress={handlePress} style={({ pressed }) => [styles.btn, pressed && styles.pressed]}>
+            <Pressable
+                testID="event-cta"
+                onPress={handlePress}
+                style={({ pressed }) => [styles.btn, pressed && styles.pressed]}
+            >
                 <Text style={styles.btnText}>{label}</Text>
             </Pressable>
         </View>
