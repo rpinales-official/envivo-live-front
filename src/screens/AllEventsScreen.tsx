@@ -18,6 +18,7 @@ const MOCK_ALL_EVENTS: Event[] = [
 ];
 
 export default function AllEventsScreen() {
+    
     const handlePress = (id: string) => {
         console.error('Event pressed:', id);
         // TODO: navigate to EventDetails when that screen exists
