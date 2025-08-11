@@ -6,6 +6,9 @@ import {
 import FeaturedEventsCarousel from '../components/FeaturedEventsCarousel';
 import VerticalEventsList from '../components/VerticalEventsList';
 import { Event } from '../types/event';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import type { RootStackParamList } from '../navigation/AppNavigator';
 
 const MOCK_FEATURED: Event[] = [
     {
@@ -68,19 +71,22 @@ const MOCK_UPCOMING: Event[] = [
 ];
 
 export default function HomeScreen() {
+
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
     return (
         <View style={styles.container}>
             <View style={styles.content}>
                 <FeaturedEventsCarousel
                     title="Featured Events"
                     data={MOCK_FEATURED}
-                    onPressItem={(id) => console.error(`Add navigation to event details page event ID: ${id}`)}
+                    onPressItem={(id) => navigation.navigate('EventDetails', { id })}
                 />
                 <View style={styles.upcomingWrap}>
                     <VerticalEventsList
                         title="Upcoming Events"
                         data={MOCK_UPCOMING}
-                        onPressItem={(id) => console.error(`Add navigation to event details page event ID: ${id}`)}
+                        onPressItem={(id) => navigation.navigate('EventDetails', { id })}
                     />
                 </View>
             </View>
