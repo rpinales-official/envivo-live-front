@@ -4,4 +4,6 @@ export type Event = {
   title: string;
   subtitle?: string;
   imageUrl?: string;
+  description?: string;
+  ticketUrl?: string;
 };

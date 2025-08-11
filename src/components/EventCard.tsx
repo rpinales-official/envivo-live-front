@@ -17,6 +17,7 @@ export default function EventCard({
     event,
     onPress,
 }: EventCardProps) {
+
     return (
         <Pressable
             onPress={() => onPress?.(event.id)}
