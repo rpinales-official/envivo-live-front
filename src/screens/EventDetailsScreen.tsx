@@ -5,14 +5,17 @@ import {
 } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { RootStackParamList } from '../navigation/AppNavigator';
+import { useEvents } from '../context/EventsProvider';
 
 type DetailsRoute = RouteProp<RootStackParamList, 'EventDetails'>;
 
 export default function EventDetailsScreen() {
-    const { params } = useRoute<DetailsRoute>();
-    const { id } = params;
 
-    console.error(`EventDetailsScreen event ID: ${id}`);
+    const { params } = useRoute<DetailsRoute>();
+    const { getEventById } = useEvents();
+    const event = getEventById(params.id);
+
+    console.error(`EventDetailsScreen event ID: ${event.id}`);
 
     return (
         <View style={styles.container}>
