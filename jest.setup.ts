@@ -26,3 +26,8 @@ try {
 jest.mock('expo-constants', () => ({
   expoConfig: { extra: { TM_API_KEY: 'TEST_KEY' } },
 }));
+
+afterEach(() => {
+  jest.clearAllMocks();
+  jest.useRealTimers();
+});
