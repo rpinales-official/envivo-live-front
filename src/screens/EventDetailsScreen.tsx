@@ -11,6 +11,7 @@ import EventTitleBlock from '../components/event-details/EventTitleBlock';
 import EventDescription from '../components/event-details/EventDescription';
 import EventCTA from '../components/event-details/EventCTA';
 import EventHero from '../components/event-details/EventHero';
+import ScreenLayout from '../components/ScreenLayout';
 
 type DetailsRoute = RouteProp<RootStackParamList, 'EventDetails'>;
 
@@ -25,18 +26,20 @@ export default function EventDetailsScreen() {
     }
 
     return (
-        <View style={styles.container}>
-            <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.content}>
-                <EventHero imageUrl={event.imageUrl} />
-                <EventTitleBlock
-                    title={event.title}
-                    venueName={event.venueName}
-                    startDateTime={event.startDateTime}
-                    timeZone={event.timeZone} />
-                <EventDescription text={event.description} />
-                <EventCTA ticketUrl={event.ticketUrl} />
-            </ScrollView>
-        </View>
+        <ScreenLayout title={event.title} showBackButton>
+            <View style={styles.container}>
+                <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.content}>
+                    <EventHero imageUrl={event.imageUrl} />
+                    <EventTitleBlock
+                        title={event.title}
+                        venueName={event.venueName}
+                        startDateTime={event.startDateTime}
+                        timeZone={event.timeZone} />
+                    <EventDescription text={event.description} />
+                    <EventCTA ticketUrl={event.ticketUrl} />
+                </ScrollView>
+            </View>
+        </ScreenLayout>
     );
 }
 
@@ -45,7 +48,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#0a0a0a',
         padding: 16,
-        paddingTop: 100, // Adjust for top bar
     },
     content: {
         paddingBottom: 24

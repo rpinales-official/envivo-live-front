@@ -9,6 +9,7 @@ import { useEvents } from '../context/EventsProvider';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/AppNavigator';
+import ScreenLayout from '../components/ScreenLayout';
 
 export default function AllEventsScreen() {
 
@@ -24,12 +25,14 @@ export default function AllEventsScreen() {
     }
 
     return (
-        <View style={styles.container}>
-            <VerticalEventsList
-                data={events}
-                onPressItem={(id) => navigation.navigate('EventDetails', { id })}
-            />
-        </View>
+        <ScreenLayout title="All Events">
+            <View style={styles.container}>
+                <VerticalEventsList
+                    data={events}
+                    onPressItem={(id) => navigation.navigate('EventDetails', { id })}
+                />
+            </View>
+        </ScreenLayout>
     );
 }
 

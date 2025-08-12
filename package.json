@@ -1,50 +1,51 @@
 {
-	"name": "envivo-live-front",
-	"version": "1.0.0",
-	"main": "index.ts",
-	"scripts": {
-		"start": "expo start",
-		"android": "expo start --android",
-		"ios": "expo start --ios",
-		"web": "expo start --web",
-		"test": "jest --preset jest-expo",
-		"test:watch": "jest --watch --preset jest-expo",
-		"test:coverage": "jest --coverage --preset jest-expo"
-	},
-	"dependencies": {
-		"@react-navigation/bottom-tabs": "^7.4.5",
-		"@react-navigation/native": "^7.1.17",
-		"@react-navigation/native-stack": "^7.3.24",
-		"dotenv": "^17.2.1",
-		"expo": "~53.0.20",
-		"expo-status-bar": "~2.2.3",
-		"react": "19.0.0",
-		"react-native": "0.79.5",
-		"react-native-safe-area-context": "5.4.0",
-		"react-native-screens": "~4.11.1"
-	},
-	"devDependencies": {
-		"@babel/core": "^7.25.2",
-		"@testing-library/jest-native": "^5.4.3",
-		"@testing-library/react-native": "^13.2.2",
-		"@types/jest": "^30.0.0",
-		"@types/react": "~19.0.10",
-		"@types/react-test-renderer": "^19.1.0",
-		"jest": "^29.7.0",
-		"jest-expo": "^53.0.9",
-		"react-test-renderer": "19.0.0",
-		"ts-jest": "^29.4.1",
-		"typescript": "~5.8.3"
-	},
-	"private": true,
-	"jest": {
-		"preset": "jest-expo",
-		"setupFilesAfterEnv": [
-			"@testing-library/jest-native/extend-expect",
-			"<rootDir>/jest.setup.ts"
-		],
-		"transformIgnorePatterns": [
-			"node_modules/(?!(react-native|@react-native|expo(nent)?|@expo(nent)?/.*|expo-modules-core|react-navigation|@react-navigation/.*))"
-		]
-	}
+  "name": "envivo-live-front",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "test": "jest --preset jest-expo",
+    "test:watch": "jest --watch --preset jest-expo",
+    "test:coverage": "jest --coverage --preset jest-expo"
+  },
+  "dependencies": {
+    "@react-navigation/bottom-tabs": "^7.4.5",
+    "@react-navigation/native": "^7.1.17",
+    "@react-navigation/native-stack": "^7.3.24",
+    "dotenv": "^17.2.1",
+    "expo": "~53.0.20",
+    "expo-status-bar": "~2.2.3",
+    "react": "19.0.0",
+    "react-native": "0.79.5",
+    "react-native-safe-area-context": "5.4.0",
+    "react-native-screens": "~4.11.1",
+    "expo-system-ui": "~5.0.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@testing-library/jest-native": "^5.4.3",
+    "@testing-library/react-native": "^13.2.2",
+    "@types/jest": "^30.0.0",
+    "@types/react": "~19.0.10",
+    "@types/react-test-renderer": "^19.1.0",
+    "jest": "^29.7.0",
+    "jest-expo": "^53.0.9",
+    "react-test-renderer": "19.0.0",
+    "ts-jest": "^29.4.1",
+    "typescript": "~5.8.3"
+  },
+  "private": true,
+  "jest": {
+    "preset": "jest-expo",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect",
+      "<rootDir>/jest.setup.ts"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(react-native|@react-native|expo(nent)?|@expo(nent)?/.*|expo-modules-core|react-navigation|@react-navigation/.*))"
+    ]
+  }
 }
