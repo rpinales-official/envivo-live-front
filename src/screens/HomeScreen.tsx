@@ -10,6 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/AppNavigator';
 import { useEvents } from '../context/EventsProvider';
+import ScreenLayout from '../components/ScreenLayout';
 
 export default function HomeScreen() {
 
@@ -17,30 +18,32 @@ export default function HomeScreen() {
     const { featuredEvents, upcomingEvents, isLoading } = useEvents();
 
     if (isLoading) {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size="large" />
-      </View>
-    );
-  }
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <ActivityIndicator size="large" />
+            </View>
+        );
+    }
 
     return (
-        <View style={styles.container}>
-            <View style={styles.content}>
-                <FeaturedEventsCarousel
-                    title="Featured Events"
-                    data={featuredEvents}
-                    onPressItem={(id) => navigation.navigate('EventDetails', { id })}
-                />
-                <View style={styles.upcomingWrap}>
-                    <VerticalEventsList
-                        title="Upcoming Events"
-                        data={upcomingEvents}
+        <ScreenLayout title="enVivo">
+            <View style={styles.container}>
+                <View style={styles.content}>
+                    <FeaturedEventsCarousel
+                        title="Featured Events"
+                        data={featuredEvents}
                         onPressItem={(id) => navigation.navigate('EventDetails', { id })}
                     />
+                    <View style={styles.upcomingWrap}>
+                        <VerticalEventsList
+                            title="Upcoming Events"
+                            data={upcomingEvents}
+                            onPressItem={(id) => navigation.navigate('EventDetails', { id })}
+                        />
+                    </View>
                 </View>
             </View>
-        </View>
+        </ScreenLayout>
     );
 }
 
