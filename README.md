@@ -6,11 +6,10 @@ Includes navigation with bottom tabs, event detail screens, custom top nav bar, 
 ## Prerequisites
 
 Before you begin, make sure you have:
-	•	Node.js (LTS recommended — check with node -v)
-	•	npm or yarn
-	•	Expo CLI (npm install --global expo-cli)
-	•	Git
-	•	An Expo account (optional but recommended for running on device)
+    •	Node.js (LTS recommended — check with node -v)
+    •	npm or yarn
+    •	Expo CLI (npm install --global expo-cli)
+    •	Git
 
 ## Getting Started
 
@@ -23,7 +22,7 @@ yarn install
 
 ## Configure environment variables
 This app uses a Ticketmaster API key stored in .env:
-	Add your key:
+Add your key:
     ```
     TM_API_KEY="your_api_key_here"
     ```
@@ -31,10 +30,12 @@ This app uses a Ticketmaster API key stored in .env:
 ## Running the App
 
 Start in development mode:
+```
 npx expo start
-	•	Press i to run on iOS simulator
-	•	Press a to run on Android emulator
-	•	Scan the QR code with the Expo Go app on your device
+```
+    •	Press i to run on iOS simulator
+    •	Press a to run on Android emulator
+    •	Scan the QR code with the Expo Go app on your device
 
 ## Running Tests
 
