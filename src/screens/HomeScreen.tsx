@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
     },
     content: {
         flex: 1,
-        padding: 16,
     },
     upcomingWrap: {
         flex: 1
