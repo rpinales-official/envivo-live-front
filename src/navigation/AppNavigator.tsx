@@ -12,7 +12,12 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function AppNavigator() {
     return (
-        <Stack.Navigator screenOptions={{ headerShown: false, contentStyle: { backgroundColor: '#0a0a0a' } }}>
+        <Stack.Navigator
+            screenOptions={{
+                headerShown: false,
+                contentStyle: { backgroundColor: '#0a0a0a' },
+                animation: 'fade',
+            }}>
             <Stack.Screen name="Tabs" component={BottomTabs} />
             <Stack.Screen name="EventDetails" component={EventDetailsScreen} />
         </Stack.Navigator>
